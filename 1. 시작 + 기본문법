@@ -1,0 +1,146 @@
+
+비기너를 위한 추천
+- 자바스크립트 개발의 기본은 HTML5 마크업, CSS, DOM, javascript
+-추천 방향 : 위의 4가지를가지고 프레임워크 없이 코딩하기
+-프레임워크는 2~4주면 배운다.
+
+html파일에 js파일 작성 방법
+-head 또는 body의 script에 js파일 작성	본 강좌는 head에 작성
+-defer속성을 넣어라	-헤드와 바디 둘 다 랜더링 하고 실행시키기
+html과 javascpirt분리해서 사용한다. html과 js파일을 2개 쓴다는 것
+
+강의 공부 방법
+강좌를 들으면					20%
+강좌를 듣고 있는 코드를 따라하면 			40%
+강좌에 있는 코드를 포스트 잇으로 가리고 혼자 치면 	40%
+
+
+
+기본 문법 
+
+- 문장  (statement)
+	-js코드 실행 단위
+	- 세미콜론(;)까지가 하나의 문장
+	-ex) ar book= "책";
+	문장 시작위치		
+		-위치 제약 없음, 일반적으로 2칸,4칸
+
+- 변수 (Variavle)
+	-값을 저장하는 영역
+	-변수 사용의 목적
+		-변수에 저장된 값의 재사용
+=는 할당 연산자
+var book = "책";		-할당 연산자의 오른쪽 "책"이라는 값을 왼쪽 book에 할당하는 것
+var book = "책", point = 123; 		- 처럼 콤마(,)로 여러개 변수 지정도 가능/ 기준은 세미콜론(;)
+var book = "책",
+     point = 123; 도 가능
+
+시맨틱(Semantc)
+변수에는 의미를 부여히여 변수 이름을 작명해야 한다. 책에는 book을 넣고, point에는 123을 부여하듯 이름 값하게 만들어라
+
+- 주석 
+	-한줄 주석 - //
+	-블록(block) 주석 -	/* 내용 */     &	/** 내용 */ -개발자들간 코딩 관례, 프로그램 설명문서를 자동으로 만들어줌
+
+- JS스펙(Specification)이란?
+	-자바스크립트 문법을 작성한 문서
+	- ES3, ES5는 JS스펙의 에디션(Editon)
+
+-console.log()
+	-소괄호() 안에 작성된 값을 브라우저 콘솔 창에 출력
+	- 문자, 숫자 등을 출력
+	- 콤마로 구분하여 다수 작성 가능
+	- 소괄호 안에 작성된 값을 강좌에서는 파라미터 "피라미터 값"이라고 부른다.
+
+- 정수, 실수
+	-정수 - 소수가 없는 숫자 - 123, -123
+	-실수 - 소수를 가진 숫자 - 1.23, 1.0
+	-js는 정수, 실수를 구분하지 않음 / 1,1.0, 1.  다 1로 출력
+
+- 숫자 처리
+	-정수와 실수를 구분하지 않음	-	64비트(Bit) 소수점 처리
+	-부동 소수점 처리란?	-	123을 123.0으로 실수화 처리
+	-ES6에 정수, 실수 구분 추가
+
+- 상수	
+	-변경할 수 없는 값
+	-상수 변수
+		-상수가 설정된 변수
+		-js는 변수의 값을 변경할 수 있으므로
+		-상수 변수는 선언적 의미
+	-상수 변수 표기 방법
+		-코딩 관례로 영문 대문자 사용
+		-ex)	var ONE = 1;
+		- 상수로 사용한다는 시맨틱(이름값하게해라) 선언
+	- 16진수
+		- A:10, B:11, C:12, D:13, E:14, F:15
+		- 0xf =15 / 0xff = 255 (16*15 +15)/ 0xfff = 4095 (16*16*15) + (16*15) + 15
+
+		 
+- 데이터 타입( DATA TYPE) = 자료형
+	- 데이터(DATA)의 사전적 의미는 자료다. 강좌에서는 데이터로 표기.
+	- 데이터 타입TYPE의 형태
+		- 숫자 타입 : var value = 123;
+		- 문자 타입 : var value = "sports";
+	- typeof 연산자
+		- 데이터 (값) 타입 반환		ex) console.log(typeof book); == string
+		- typeof value에 데이터를 작성
+	-카워드(Keyword)
+		-특별한 기능을 가진 단어	
+
+- 데이터 타입 분류
+	-언어 타입과 스펙 타입
+	-언어 타입
+		-js프로그램에서 사용할 수 있는 타입
+		- Undefined, Null, Boolean, String, Number, Object
+	- 스펙(문서) 타입
+		- 언어 알고리즘을 위한 타입으로 js프로그램에서 사용 불가
+		- Refernce, List, Completion, Property Descriptor, Data Block, Lexical Environment, Lexical Record 등
+	- Number 타입
+		-부호( + , - )를 가진 값
+		- 숫자 값 범위
+			18.437,736,874,454,810,627(2의 64승 - 2의 53승 + 3)
+		- Number 타입의 특수한 3개 값
+			- NaN : Not-a-Number  ex) 1 * "A"; = NaN 		- 숫자가 아니다~라고 값을 출력
+			-  Infinity : 양수 무한대 / -Infinity : 음수 무한대
+	- String 타입
+		- 문자 타입
+		- 값을 "" 또는 '' 사이에 작성
+		- 최대 문자수: 2의 53승 -1
+		- 큰따옴표와 작은따옴표를 같이 사용하는 방법 	-	큰따옴표문장 안 작은 따옴표 단어쓰기
+		- 숫자를 따옴표 안에 넣으면 문자 타입이 된다.
+	
+- Undefiend 타입
+	- Undeifend(대문자) 
+		- 값 :  undefined(소문자)
+	-변수의 디폴트(Defalt)값
+		-var point;
+		-변수를 선언만 한 것으로 undefined가 초깃값으로 설정
+		-변수에 값을 할당하지 않은것을 나타나는 시맨틱
+	-변수에 undefined 할당가능
+
+- Null 타입
+	-Null(대문자)타입
+		- 값: null(소문자)
+	-null과 undefined차이
+		- undefined는 단지 변수만 선언 / null은 할당해야 값이 null이 됨
+		- 의도적으로 값을 할당한 것으로 코드를 수행한 것이 된다.
+
+- Boolean 타입
+	- 불러인 타입
+		-값 : true, false
+
+- Object 타입
+	- Object 형태
+		- {name: value} 형태
+	- 프로퍼티(property)
+		-name과 value 하나를 지칭
+	- Object는 프로퍼티 집합
+
+-타입 정리
+	-js의 기본 타입 정리
+	- 기본 데이터 타입을 Primitive타입이라고 한다.
+		-log(typeof 123); : number / log(typeof "문자열"); : string / log(typeof true); : 불리언 / 
+		-log(typeof undefined); : undefined
+	- 데이터 타입이 같다? 
+		-no, log(typeof null); : object / log(typeof {book:"책}; : object
