@@ -1,0 +1,179 @@
+문장 
+
+- 형태 : ;(세미콜론)
+- 문장을 끝나게 하는 역할
+	- var book = "책";
+
+- 화이트 스페이스( White Space)
+	- 사람 눈에 보이지 않는 문제
+		- 가독성을 위한 것
+		- 문자마다 기능을 갖고 있음
+	- 수평 탭(Hoizontal Tab) : <TAB> / 수직 탭(Vertical Tab) : <VT> / 폼 넘기기(From Feed) : <FF>
+	- 공백(Space):<SP> / NBSP(No-break space): <NBSP> - html의 엔퍼센트 NBSP / BOM(Byte Order Mark): <BOM>
+	- Line Feed(LF): <LF>	- 40줄을 쓰고 Line Feed를하면 다음줄이 40줄의 칸상태에서 위치한다.
+	- Carriage Return(CR): <CR> - Line Feed의 기능이 필요없으면 그 줄의 첫칸으로 간다. 보통 <LFCR>이라고 부른다.
+
+- 세미콜론 자동 삽입
+	- 세미콜론(;)은 문장 끝에 작성
+	- 세미콜론을 삽입하여 자동으로 문잔이 끝나게 한다. var one = 1 / log(one); => 1
+
+- 블록(block)
+	- 형태 : { 문장 리스트 opt}
+	- 중괄호 {}
+		- 실행 그룹으로 블록 안의 모든 문장 실행
+	- 문장 리스트
+		- {} 안의 모든 문장 
+		- 문장 리스트 작성은 선택(Option)	 문장 리스트 안에 opt가 적혀있으면 안적어도 오류가 안뜬다 
+		- 강좌에서 option을 opt로 표기
+코드1
+var one = 1, two = 1;
+in (one === two){
+	var resule = one + two;
+	console.log(result);
+};
+
+- if, debugger(드러눕다)
+- If
+	- 형태 : if(표현식) 문장 1 / if(표현식) 문장1 else 문장2
+	- 조건에 따른 처리
+		- 먼저 표현식을 평가
+		- 평가 결과를 true/false로 변환
+		-true면 문장1 실행
+		-false면 문장2 실행
+코드1
+var a =1, b = 1;
+if (a===b) log("블록을 사용하지 않음")
+
+if (a===b) 		-  #if문은 세미콜론을 사용하지 않으면 계속 적기 가능
+	log("1번 줄")
+	log("2번 줄")		
+코드 2			
+var a =1, b = 2;		
+if(a===b){
+	log("블록 사용");
+};
+- 코드1은 블락사용을 안하고 1줄에 적지만, 코드2는 블락을 사용하고 3줄을 쓴다. 취향차이지만 쓸거면 하나만 사용하는게 좋다.
+코드 3
+var a = 1, b = 2;
+if (a === b)
+	log(" 블록 사용하지 않음, true");
+else
+	log(" 블록 사용하지 않음, flase");
+코드 4 
+var a = 1, b = 2;
+if ( a===b){
+	log("블록 사용, true");
+} else {
+	log("블록 사용, else");
+}
+
+- Debugger(드러눕다)
+	- debugger 위치에서 실행 멈춤
+		- 브라우저 개발자 도구 창이 열려 있을 때만 멈춤
+		- 열려있지 않으면 멈추지 않음
+		- ES5부터 지원
+		- Debugger 실행
+		- 사용법 : 천 줄짜리 코드를 100줄 작성하고 쉬다 오면 100줄에다가 디버거를 걸고 껏다 키면 100줄에서 실행
+		- 	: 테스트해보고 싶은 것 뒤에다가 디버거를 걸고 테스트하기
+코드1
+var sports = "스포츠"
+debugger;
+log(sports);
+
+while,do - while
+- while
+	- 형태 : while(표현식) 문장
+	- 표현식의 평가 결과가 false가 될 때까지 문장을 반복하여 실행 / 반복이 종료되는 조건 필요
+코드1
+var k = 1;
+while (k < 3){
+	log(k);
+	k++;
+};		>>1   2
+
+- do ~ while
+	- 형태 : do 문장 while (표현식)
+	- 처리 방법은 while 문과 같음 단, do 문을 먼저 실행 + do실행후 while문이 트루면 다시 do실행 while문이 false면 while 문 실행
+코드1
+var k = 0;
+do{
+	log("do:" , k);
+	k++;
+} while (k < 3){
+	log("while:", k);
+}
+do: 0
+do: 1
+do: 2
+while: 3
+
+ - for()문
+	- 형태 : for (초깃값opt; 비교opt; 증감opt;) 문장
+	- 2번 째의 비교 표현식으 평가 결과가 true인 동안 문장을 반복 실행
+코드1
+for (var k = 0; k < 2; k++){
+	log(k);
+};
+
+- for()문의 옵션 -- 옵션에 어떤 것이 있는지
+	- 형태: for(초깃값opt; 비교opt; 증감opt) 문장
+	- 형태에서 opt는 생략 가능
+		- 증감 생략			코드1
+		- 초깃값과 증감 생략		코드2
+		- 비교와 증감 생략			코드3		구린코드
+		- 모두 생략			코드4		구린코드
+코드1
+for(var k =0; k < 3;){
+	log(k);
+	k++;
+};
+코드2
+var k=0;
+for (; k<3;){
+	log(k);
+	k++;
+};
+코드3
+for(var k = 0; ;) {
+	log(k);
+	k++;
+	if(k<2){
+		break
+	};
+};
+코드4
+var k=0;
+for(; ;){
+	log(k)
+	if(k ===2){
+	break;
+};
+k++
+};
+
+for()문을 사용하여 1에서 50까지 반복하면서 홀수 번째 값과 짝수 번째 값을 누적하고 반복한 값을 누적합니다.
+반복을 완료하면 누적한 홀수 번째 값과 누적한 짝수 번째 값을 출력합니다.	누적한 값을 출력합니다.
+
+var even =0, odd =0, even_num= 0, odd_num = 0; //짝수, 홀수 ,짝수갯수, 홀수갯수 할당
+
+for(k = 1; k < 51; k++){        //짝수 홀수의 구분과 50까지의 숫자 반복시킬 k
+   if(k % 2 === 0){             //짝수일 때 짝수합 + 짝수갯수
+       even += k;
+       even_num += 1
+
+    }else{                      //홀수일 떄 홀수합 + 홀수 갯수
+        odd += k;
+        odd_num += 1;
+    };
+   };
+
+   console.log("짝수 갯수:",even_num);
+   console.log("홀수 갯수:",odd_num);
+   console.log("총합:",even+odd);
+
+쌤
+   var odd1 = 0, even1 = 0;
+
+   for (var i = 1; i < 51; i++) {
+     i % 2 === 0 ? even1 += i : odd1 += i;	-if문을 한줄로 쓰기/      조건 ?(물음표) true일 때 :(콜론)  else(false)일 때
+   };
